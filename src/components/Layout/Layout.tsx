@@ -1,25 +1,28 @@
+import classNames from 'classnames';
 import React from 'react';
+
 import './Layout.css';
 
 interface SupportChildren extends Record<any, any> {
   children: React.ReactNode;
+  className?: string;
 }
 
-const Content = ({ children }: SupportChildren) => {
-  return <section className='layout__content'>{children}</section>;
+const Content = ({ children, className }: SupportChildren) => {
+  return <section className={classNames('layout__content', className)}>{children}</section>;
 }
 
-const Header = ({ children }: SupportChildren) => {
-  return <header className='layout__header'>{children}</header>;
+const Header = ({ children, className }: SupportChildren) => {
+  return <header className={classNames('layout__header', className)}>{children}</header>;
 }
 
-const StickyFooter = ({ children }: SupportChildren) => {
-  return <footer className='layout__sticky-footer'>{children}</footer>;
+const StickyFooter = ({ children, className }: SupportChildren) => {
+  return <footer className={classNames('layout__sticky-footer', className)}>{children}</footer>;
 }
 
-const Layout = ({ children }: SupportChildren) => {
+const Layout = ({ children, className }: SupportChildren) => {
   return (
-    <div className='layout'>{children}</div>
+    <div className={classNames('layout', className)}>{children}</div>
   );
 }
 
