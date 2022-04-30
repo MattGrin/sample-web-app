@@ -1,13 +1,114 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-Light.ttf) format('TrueType');
+  font-weight: 300;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'),
+    url(./fonts/nunito/Nunito-LightItalic.ttf) format('TrueType');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-Regular.ttf) format('TrueType');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'),
+    url(./fonts/nunito/Nunito-Italic.ttf) format('TrueType');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-Medium.ttf) format('TrueType');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'),
+    url(./fonts/nunito/Nunito-MediumItalic.ttf) format('TrueType');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-Bold.ttf) format('TrueType');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-BoldItalic.ttf) format('TrueType');
+  font-weight: 600;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-ExtraBold.ttf) format('TrueType');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'),
+    url(./fonts/nunito/Nunito-ExtraBoldItalic.ttf) format('TrueType');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'), url(./fonts/nunito/Nunito-Black.ttf) format('TrueType');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local('Nunito'),
+    url(./fonts/nunito/Nunito-BlackItalic.ttf) format('TrueType');
+  font-weight: 800;
+  font-style: italic;
+}
+
+:root {
+  /* Fonts color */
+  --font-primary-active: #FF452B;
+  --font-primary-active-hover: rgb(178, 48, 30);
+  --font-primary-solid: #263238;
+  --font-secondary-solid: #607D8B;
+
+  /* Button and body background color */
+  --button-primary: #FF452B;
+  --button-primary-hover: rgb(178, 48, 30);
+  --background-over-secondary: #fafafa;
+  --background-over-primary: #FFF8F7;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Nunito,
+    'Arial', 'Helvetica', sans-serif, 'Segoe UI', 'Roboto',
+    'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+  background-color: var(--background-over-secondary);
 }
