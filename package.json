@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:github": "react-scripts test --ci --env=jsdom --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
