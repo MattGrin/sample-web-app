@@ -3,11 +3,7 @@ import { AxiosResponse } from 'axios';
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import { createBeerService } from '../services/beers';
 import { BeerList, BeersAPI } from '../services/beers/beers.types';
-
-const serialize = <TSerializerFnResponse, TPromiseResult>(
-  serializer: (value: TPromiseResult) => TSerializerFnResponse,
-  requester: (...args: any[]) => Promise<TPromiseResult>
-) => (...args: any[]) => requester(...args).then(serializer);
+import { serialize } from '../utils/utils';
 
 const useBeers = () => {
   /**
