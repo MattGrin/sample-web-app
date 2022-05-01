@@ -40,7 +40,7 @@ describe('Beers service', () => {
     expect(someBeersResponse).toEqual(sanitizedSomeBeerRes);
 
     expect(someFoundBeerPromise).toBeInstanceOf(Promise);
-    const sanitizedSomeFoundBeerRes = `?beer_name=${someFoundBeerResponseArgs.name.replaceAll(' ', '_')}`
+    const sanitizedSomeFoundBeerRes = `?beer_name=${someFoundBeerResponseArgs.name.replace(/\s/g, '_')}`
 
     const someFoundBeerResponse = await someFoundBeerPromise
     expect(someFoundBeerResponse).toEqual(sanitizedSomeFoundBeerRes);
