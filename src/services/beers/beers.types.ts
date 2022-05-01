@@ -73,14 +73,14 @@ export interface BeerItem {
 
 export type BeerList = BeerItem[]
 
-export type BeersAPI = ServerRes<BeerList>
+export type BeersAPI = BeerList
 
 export interface BeersService {
   getBeers: (params: {
     page?: number,
     perPage?: number,
-  }) => BeersAPI,
+  }) => ServerRes<BeersAPI>,
   findBeer: (params: {
     name: string,
-  }) => BeersAPI,
+  }) => ServerRes<BeersAPI>,
 }
