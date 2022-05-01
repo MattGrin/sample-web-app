@@ -9,6 +9,16 @@ const httpClient = axios.create({
   timeout: process.env.NODE_ENV === 'development' ? 30000 : 40000,
 })
 
+/**
+ * Services responses serializer
+ */
+const serialize = <TSerializerFnResponse, TPromiseResult>(
+  serializer: (value: TPromiseResult) => TSerializerFnResponse,
+  requester: (...args: any[]) => Promise<TPromiseResult>
+) => (...args: any[]) => requester(...args).then(serializer);
+
+
 export {
+  serialize,
   httpClient,
 }
