@@ -8,10 +8,10 @@ interface Linkable {
 export interface Character {
   id: number,
   name: string,
-  status: string,
+  status: 'alive' | 'dead' | 'unknown', 
   species: string,
   type: string,
-  gender: string,
+  gender: 'female' | 'male' | 'genderless' | unknown,
   origin: Linkable,
   location: Linkable,
   image: string,
@@ -34,6 +34,13 @@ export interface CharactersAPI {
   results: CharacterList
 }
 
+interface FiltrableParams extends Partial<Pick<
+    Character,
+    'name' | 'status' | 'species' | 'type' | 'gender'
+  >> {
+  page: number,
+}
+
 export interface CharactersService {
-  getCharacters: (params: {}) => ServerRes<CharactersAPI>,
+  getCharacters: (params: FiltrableParams) => ServerRes<CharactersAPI>,
 }
