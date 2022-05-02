@@ -34,10 +34,10 @@ export interface CharactersAPI {
   results: CharacterList
 }
 
-interface FiltrableParams extends Pick<
+interface FiltrableParams extends Partial<Pick<
     Character,
     'name' | 'status' | 'species' | 'type' | 'gender'
-  > {
+  >> {
   page: number,
 }
 
