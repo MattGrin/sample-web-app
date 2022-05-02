@@ -11,10 +11,10 @@ const ListItem = (props: any) => {
         alt="beer"
         src="https://assets.jumpseller.com/store/beer-square/themes/284927/options/22224011/founders_20220103.jpg?1641217025" />
       <div aria-hidden className="list-item__title"><h3>{props.name}</h3></div>
-      <div aria-hidden className="list-item__level"><b>{props.abv}%</b></div>
+      <div aria-hidden className="list-item__level"><small><b>{props.abv}%</b></small></div>
       <div aria-hidden className="list-item__tagline">{props.tagline}</div>
       <div aria-hidden className="list-item__contributor">
-        <small aria-hidden >by {sanitizedContributor}</small>
+        <small aria-hidden >{sanitizedContributor}</small>
       </div>
     </button>
   );

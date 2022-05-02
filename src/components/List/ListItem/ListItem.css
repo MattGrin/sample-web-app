@@ -51,6 +51,7 @@
 .list-item__tagline {
   grid-area: c;
   align-self: end;
+  text-align: left;
   padding: 1rem;
   color: var(--font-secondary-solid);
 }
@@ -67,4 +68,28 @@
 
   background-color: #f0f1f2;
   border-radius: 1rem;
+}
+
+@media (max-width: 768px) {
+  .list-item {
+    grid-template-columns: 1fr 1fr 4fr;
+    grid-template-areas:
+      "lead b d"
+      "lead a a"
+      "lead c c"
+  }
+
+  .list-item__title {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  .list-item__level {
+    justify-self: start;
+    margin: .8rem;
+    padding: .2rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+
 }
