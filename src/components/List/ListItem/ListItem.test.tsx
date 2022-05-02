@@ -130,8 +130,8 @@ describe('ListItem', () => {
     render(<ListItem {...BEER_ITEM} />);
     const nameElement = screen.getByText("Buzz");
     const avbElement = screen.getByText("4.5%");
-    const taglineElement = screen.getByText("A Real Bitter Experience");
-    const contributor = screen.getByText("samjbmason");
+    const taglineElement = screen.getByText("A Real Bitter Experience.");
+    const contributor = screen.getByText("by samjbmason");
     expect(nameElement).toBeInTheDocument();
     expect(avbElement).toBeInTheDocument();
     expect(taglineElement).toBeInTheDocument();
