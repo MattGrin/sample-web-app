@@ -19,7 +19,7 @@ const ListItem = ({title, subtitle, trailingSpec, leadingSpec, imgUrl, ...button
         alt="item-image"
         src={imgUrl} />
       <div aria-hidden className="list-item__title"><h3>{title}</h3></div>
-      <div aria-hidden className="list-item__level"><small><b>{leadingSpec}%</b></small></div>
+      <div aria-hidden className="list-item__level"><small><b>{leadingSpec}</b></small></div>
       <div aria-hidden className="list-item__tagline">{subtitle}</div>
       <div aria-hidden className="list-item__contributor">
         <small aria-hidden >{trailingSpec}</small>
