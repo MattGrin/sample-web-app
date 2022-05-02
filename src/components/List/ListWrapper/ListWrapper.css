@@ -1,0 +1,13 @@
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .list-container {
+    max-width: var(--max-screen-width);
+    grid-template-columns: 1fr 1fr;
+  }
+}
