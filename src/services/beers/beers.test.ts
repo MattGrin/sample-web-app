@@ -36,11 +36,11 @@ describe('Beers service', () => {
     expect(someBeersPromise).toBeInstanceOf(Promise);
 
     const someBeersResponse = await someBeersPromise
-    const sanitizedSomeBeerRes = `beers?page=${someBeersResponseArgs.page}&per_page=${someBeersResponseArgs.perPage}`
+    const sanitizedSomeBeerRes = `/beers?page=${someBeersResponseArgs.page}&per_page=${someBeersResponseArgs.perPage}`
     expect(someBeersResponse).toEqual(sanitizedSomeBeerRes);
 
     expect(someFoundBeerPromise).toBeInstanceOf(Promise);
-    const sanitizedSomeFoundBeerRes = `beers?beer_name=${someFoundBeerResponseArgs.name.replace(/\s/g, '_')}`
+    const sanitizedSomeFoundBeerRes = `/beers?beer_name=${someFoundBeerResponseArgs.name.replace(/\s/g, '_')}`
 
     const someFoundBeerResponse = await someFoundBeerPromise
     expect(someFoundBeerResponse).toEqual(sanitizedSomeFoundBeerRes);

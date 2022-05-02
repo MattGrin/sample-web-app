@@ -5,7 +5,7 @@ import env from '../config/env';
  * Root Axios instance, every configurable attribute can be set here
  */
 const httpClient = axios.create({
-  baseURL: env.base_url,
+  baseURL: env.BASE_URL,
   timeout: process.env.NODE_ENV === 'development' ? 30000 : 40000,
 })
 
