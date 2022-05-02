@@ -1,6 +1,6 @@
 import './ListItem.css'
 
-export interface ListItemProps extends React.HTMLProps<HTMLButtonElement> {
+export interface ListItemProps extends React.HTMLAttributes<HTMLButtonElement> {
   title: string;
   imgUrl: string;
   subtitle: string;
