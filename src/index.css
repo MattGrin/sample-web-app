@@ -93,6 +93,8 @@
   --button-primary-hover: rgb(178, 48, 30);
   --background-over-secondary: #fafafa;
   --background-over-primary: #FFF8F7;
+
+  --max-screen-width: 1000px;
 }
 
 * {
