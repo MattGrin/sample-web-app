@@ -99,7 +99,11 @@ const useCharacters = () => {
     infiniteQueryRequestConfig,
   );
 
-  const charactersList = charactersData?.pages.map(page => page.results).flat();
+  const charactersList = charactersData?.pages.map(page => page.results).flat() || [];
+
+  const shouldDisplayMainError = isError && !isFetching && !isRefetchError && charactersList.length === 0;
+
+  const shouldDisplayPageLoader = isFetchingNextPage && hasNextPage;
 
   return {
     /* Data */
@@ -111,6 +115,8 @@ const useCharacters = () => {
     fetchingMoreCharacters: isFetchingNextPage,
     failedFetchingMoreCharacters: isRefetchError,
     hasMoreCharacters: hasNextPage,
+    shouldDisplayMainError,
+    shouldDisplayPageLoader,
 
     /* Tools */
     getNextPage: fetchNextPage,
