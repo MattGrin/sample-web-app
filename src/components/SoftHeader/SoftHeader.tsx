@@ -9,7 +9,7 @@ const SoftHeader = () => {
     <h1>
       R&MDB
     </h1>
-    Rick and morty data base, like imdb, but wayy cooler
+    Rick and morty characters database, like imdb, but wayy cooler
   </section>
 }
 
