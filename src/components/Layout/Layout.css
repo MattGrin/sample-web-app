@@ -10,11 +10,12 @@
   /* Force space usage */
   width: 100%;
   height: 100%;
-  max-height: 100%;
   min-height: 100%;
 
   background: url('./pink-shape.png');
   background-size: cover;
+  max-width: var(--max-screen-width);
+  margin: auto;
 }
 
 .layout__header {
