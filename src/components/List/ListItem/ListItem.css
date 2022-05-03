@@ -15,7 +15,7 @@
   overflow: hidden;
   color: var(--font-primary-solid);
   background: var(--background-over-secondary);
-  border: 1px solid #ECEFF1;
+  border: var(--box-border);
   border-radius: 1rem;
 
   transition: transform ease 100ms;
