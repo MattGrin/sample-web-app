@@ -1,0 +1,37 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
+  grid-gap: 0px;
+  /* Force space usage */
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+
+  background: url('./pink-shape.png');
+  background-size: cover;
+  max-width: var(--max-screen-width);
+  margin: auto;
+}
+
+.layout__header {
+  grid-area: header;
+  width: 100%;
+  max-width: var(--max-screen-width);
+  padding: 1rem;
+  padding-bottom: 0;
+  text-align: initial;
+}
+
+.layout__content {
+  overflow: auto;
+  grid-area: content;
+}
+
+.layout__sticky-footer {
+  grid-area: footer;
+}
