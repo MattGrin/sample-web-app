@@ -7,7 +7,14 @@ import './Characters.css'
 
 const Characters = (props: any) => {
 
-  const { charactersList, getNextPage, hasMoreCharacters } = useCharacters()
+  const { 
+    charactersList,
+    getNextPage,
+    hasMoreCharacters,
+    failedFetchingMoreCharacters,
+    failedCharacterService,
+    shouldDisplayPageLoader,
+  } = useCharacters()
   const [seekerReference, isVisible] = useIntersectionObserver<HTMLDivElement>({
     root: null,
     rootMargin: '0px',
@@ -20,7 +27,6 @@ const Characters = (props: any) => {
     }
   }, [isVisible, getNextPage, hasMoreCharacters])
 
-
   return <ListWrapper>
     {charactersList && charactersList.map((character: Character) => {
       return <ListItem
@@ -32,7 +38,11 @@ const Characters = (props: any) => {
         imgUrl={character.image}
       />
     })}
-    {hasMoreCharacters && <p ref={seekerReference}>...</p>}
+    {hasMoreCharacters && <div ref={seekerReference} />}
+    {shouldDisplayPageLoader && !failedFetchingMoreCharacters && <h3 ref={seekerReference}> Looking for more charactes... 💭</h3>}
+    {shouldDisplayPageLoader && failedFetchingMoreCharacters && <h3 ref={seekerReference}> We're trying again...</h3>}
+    {failedFetchingMoreCharacters && !!charactersList.length && <h3 ref={seekerReference}> Something happened getting more charactes.</h3>}
+    {failedCharacterService && !charactersList.length && <h3>Failed to load characters, our system is in some kind of problem :(</h3>}
   </ListWrapper>
 }
 
