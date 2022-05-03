@@ -87,6 +87,7 @@
   --font-primary-active-hover: rgb(178, 48, 30);
   --font-primary-solid: #263238;
   --font-secondary-solid: #607D8B;
+  --font-over-primary: white;
 
   /* Button and body background color */
   --button-primary: #FF452B;
