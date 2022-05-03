@@ -96,6 +96,10 @@
   --background-over-primary: #FFF8F7;
 
   --max-screen-width: 1000px;
+
+  --box-shadow: 0px 4px 4px rgb(193 193 193 / 29%),
+                0px -1px 4px -1px rgb(193 193 193 / 19%);
+  --box-border: 1px solid #ECEFF1;
 }
 
 * {
