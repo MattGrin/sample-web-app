@@ -11,8 +11,11 @@ const ROOT = {
   ACTIVE_DOMAIN: DOMAINS.RICK_AND_MORTY,
 }
 
-export default {
+const BASE_ENV = {
   ...ROOT,
   BASE_URL: ROOT.BASE_URL_COLLECTION[ROOT.ACTIVE_DOMAIN],
 };
+
+export default BASE_ENV;
+
 

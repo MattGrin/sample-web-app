@@ -34,6 +34,10 @@ const useIntersectionObserver = <T extends HTMLElement>(
       $observable.observe(targetElemRef.current);
     }
     return () => {
+      /**
+       * disabled es-lint due to suggested fix is not stable
+       */
+      // eslint-disable-next-line
       if (targetElemRef.current) $observable.unobserve(targetElemRef.current);
     };
   }, [targetElemRef, options]);

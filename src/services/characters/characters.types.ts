@@ -11,7 +11,7 @@ export interface Character {
   status: 'alive' | 'dead' | 'unknown', 
   species: string,
   type: string,
-  gender: 'female' | 'male' | 'genderless' | unknown,
+  gender: 'female' | 'male' | 'genderless' | 'unknown',
   origin: Linkable,
   location: Linkable,
   image: string,
@@ -38,7 +38,7 @@ export interface FiltrableParams extends Partial<Pick<
     Character,
     'name' | 'status' | 'species' | 'type' | 'gender'
   >> {
-  page: number,
+  page?: number,
 }
 
 export interface CharactersService {

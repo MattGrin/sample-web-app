@@ -1,20 +1,10 @@
-import {  useState } from 'react';
-import { AxiosResponse } from 'axios';
+import { AxiosError, AxiosResponse } from 'axios';
 import { QueryFunctionContext, useInfiniteQuery } from 'react-query';
 import { serialize } from '../utils/utils';
 import { createCharacterService } from '../services/characters';
 import { CharactersAPI, FiltrableParams } from '../services/characters/characters.types';
 
-const useCharacters = () => {
-
-  const [searchParams, setSearchParams] = useState<FiltrableParams>({
-    page: 1,
-    name: undefined,
-    status: undefined,
-    species: undefined,
-    type: undefined,
-  });
-
+const useCharacters = (searchParams: FiltrableParams) => {
   /**
    * Characters service instance
    */
@@ -83,6 +73,7 @@ const useCharacters = () => {
   const {
     /* Data */
     data: charactersData,
+    error,
 
     /* flags */
     isError,
@@ -93,6 +84,7 @@ const useCharacters = () => {
 
     /* Tools */
     fetchNextPage,
+    refetch,
   } = useInfiniteQuery(
     ['characters'],
     charactersResponseHandler,
@@ -105,11 +97,16 @@ const useCharacters = () => {
 
   const shouldDisplayPageLoader = isFetchingNextPage && hasNextPage;
 
+  const typifiedError = error as AxiosError<{ error: string }>
+
+  const nothingFound = isError && (typifiedError?.response?.data?.error || '').indexOf('nothing here') !== -1;
+  
   return {
     /* Data */
     charactersList,
 
     /* flags */
+    nothingFound,
     failedCharacterService: isError,
     fetchingCharacters: isFetching,
     fetchingMoreCharacters: isFetchingNextPage,
@@ -120,7 +117,7 @@ const useCharacters = () => {
 
     /* Tools */
     getNextPage: fetchNextPage,
-    searchCharacters: setSearchParams,
+    refetch,
   };
 }
 

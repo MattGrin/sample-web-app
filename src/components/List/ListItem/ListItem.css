@@ -15,11 +15,10 @@
   overflow: hidden;
   color: var(--font-primary-solid);
   background: var(--background-over-secondary);
+  border: var(--box-border);
   border-radius: 1rem;
 
   transition: transform ease 100ms;
-  box-shadow: 0px 4px 4px rgb(193 193 193 / 29%),
-    0px -1px 4px -1px rgb(193 193 193 / 19%);
 }
 
 .list-item:focus {
