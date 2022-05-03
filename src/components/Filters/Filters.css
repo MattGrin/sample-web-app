@@ -14,7 +14,9 @@
 }
 
 .filters__visible-section{
+  width: 100%;
   display: inherit;
+  justify-content: end;
   gap: 1rem;
 }
 
@@ -94,4 +96,9 @@
   background-color: var(--button-primary);
   color: var(--font-over-primary);
   border-radius: .8rem;
+}
+
+.loader {
+  align-self: center;
+  flex-grow: 1;
 }
