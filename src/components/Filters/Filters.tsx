@@ -3,6 +3,7 @@ import classnames from "classnames";
 import { Character } from "../../services/characters/characters.types";
 import { ReactDispatcher } from "../../utils/utils.types";
 import "./Filters.css";
+import PrimaryButton from "../PrimaryButton";
 
 export interface FilterProps {
   loading: boolean;
@@ -18,17 +19,6 @@ export interface FilterProps {
 const TextInput: React.FC<React.HTMLProps<HTMLInputElement>> = (inputProps) => {
   return (
     <input type="text" maxLength={30} className="text-input" {...inputProps} />
-  );
-};
-
-const PrimaryButton: React.FC<React.HTMLAttributes<HTMLButtonElement>> = ({
-  children,
-  ...buttonProps
-}) => {
-  return (
-    <button className="primary-button" {...buttonProps}>
-      {children}
-    </button>
   );
 };
 
