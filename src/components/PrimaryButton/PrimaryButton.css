@@ -1,0 +1,21 @@
+.primary-button{
+  all: unset;
+  cursor: pointer;
+
+  padding: .5rem 1rem;
+
+  border: 1px solid var(--font-primary-active);
+  border-radius: .8rem;
+
+  color: var(--font-over-primary);
+  background-color: var(--button-primary);
+}
+
+.primary-button:hover {
+  background-color: var(--button-primary-hover);
+}
+
+.primary-button:focus {
+  background-color: var(--button-primary);
+  outline: var(--button-primary-hover) .05rem inset
+}

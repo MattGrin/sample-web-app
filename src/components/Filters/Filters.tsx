@@ -1,7 +1,10 @@
 import { useState } from "react";
-import classnames from "classnames";
 import { Character } from "../../services/characters/characters.types";
 import { ReactDispatcher } from "../../utils/utils.types";
+import PrimaryButton from "../PrimaryButton";
+import TextInput from "../TextInput";
+import Switch from "../Switch";
+import { ReactComponent as FilterIcon } from "./filter-icon.svg";
 import "./Filters.css";
 
 export interface FilterProps {
@@ -15,27 +18,6 @@ export interface FilterProps {
   handleClearFilter: () => void;
 }
 
-const TextInput: React.FC<React.HTMLProps<HTMLInputElement>> = (inputProps) => {
-  return (
-    <input type="text" maxLength={30} className="text-input" {...inputProps} />
-  );
-};
-
-const PrimaryButton: React.FC<React.HTMLAttributes<HTMLButtonElement>> = ({
-  children,
-  ...buttonProps
-}) => {
-  return (
-    <button className="primary-button" {...buttonProps}>
-      {children}
-    </button>
-  );
-};
-
-/**
- * Rick and morty data base
- * Soft header
- */
 const Filters = ({
   loading,
   setName,
@@ -63,7 +45,7 @@ const Filters = ({
         data-testid="visible-section"
         className="filters__visible-section"
       >
-        {loading && <h1 className="loader">Loading...</h1>}
+        {loading && !expandedView && <h4 className="loader">(...)</h4>}
         <TextInput
           aria-label="search by name"
           placeholder="Search by name..."
@@ -72,59 +54,59 @@ const Filters = ({
             setName(event.target.value);
           }}
         />
-        <PrimaryButton className="primary-button" onClick={toggleExpnandedView}>
-          <h4>X</h4>
+        <PrimaryButton onClick={toggleExpnandedView} className="filters__icon">
+          <FilterIcon
+            width="16px"
+            height="16px"
+            fill="var(--background-over-primary)"
+          />
         </PrimaryButton>
       </section>
       {expandedView && (
         <>
           <section className="filters__collapsable-area">
-            <label htmlFor="status-selector">
-              <b>Status</b>
-            </label>
-            <div
+            <Switch.Wrapper
               id="status-selector"
-              aria-label={`${
+              label="status"
+              aria-label={
                 status ? status + "is selected" : "no status is selected"
-              }`}
-              className="switch"
+              }
             >
               {availableStatus.map((_status) => (
-                <div
+                <Switch.Item
+                  key={_status}
+                  isActive={_status === status}
                   onClick={() => setStatus(_status)}
                   aria-label={`${_status} status option`}
-                  className={classnames("switch__item", {
-                    "switch__item--active": status === _status,
-                  })}
                 >
                   {_status}
-                </div>
+                </Switch.Item>
               ))}
-            </div>
-            <label htmlFor="gender-selector">
-              <b>Gender</b>
-            </label>
-            <div
+            </Switch.Wrapper>
+            <Switch.Wrapper
               id="gender-selector"
-              aria-label={`${
+              label="gender"
+              aria-label={
                 gender ? gender + "is selected" : "no gender is selected"
-              }`}
-              className="switch"
+              }
             >
               {availableGenders.map((_gender) => (
-                <div
+                <Switch.Item
+                  key={_gender}
+                  isActive={_gender === gender}
                   onClick={() => setGender(_gender)}
                   aria-label={`${_gender} gender option`}
-                  className={classnames("switch__item", {
-                    "switch__item--active": gender === _gender,
-                  })}
                 >
                   {_gender}
-                </div>
+                </Switch.Item>
               ))}
-            </div>
+            </Switch.Wrapper>
           </section>
-          <section data-testid="filter-cleanup">
+          <section
+            data-testid="filter-cleanup"
+            className="filters__collapsable-area-bottom"
+          >
+            {loading && expandedView && <h4 className="loader">(...)</h4>}
             <PrimaryButton onClick={handleClearFilter}>
               <h4>clear filters</h4>
             </PrimaryButton>
