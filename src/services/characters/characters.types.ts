@@ -38,7 +38,7 @@ export interface FiltrableParams extends Partial<Pick<
     Character,
     'name' | 'status' | 'species' | 'type' | 'gender'
   >> {
-  page: number,
+  page?: number,
 }
 
 export interface CharactersService {
