@@ -80,7 +80,7 @@ const Characters = (props: any) => {
       </Layout.Header>
       <Layout.Content>
         <ListWrapper>
-          {nothingFound && <h1>We didn't found anything with that</h1>}
+          {nothingFound && <h1>We didn't found anything like that</h1>}
           {charactersList &&
             !nothingFound &&
             charactersList.map((character: Character) => {

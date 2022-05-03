@@ -1,0 +1,15 @@
+
+.text-input {
+  all: unset;
+  cursor: pointer;
+
+  padding: .5rem 1rem;
+
+  border: 1px solid var(--font-primary-active);
+  border-radius: .8rem;
+  background-color: var(--background-over-primary);
+}
+
+.text-input:focus {
+  outline: var(--font-primary-active) 1rem auto
+}
