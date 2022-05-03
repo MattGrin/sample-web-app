@@ -23,6 +23,7 @@
   width: 100%;
   max-width: var(--max-screen-width);
   padding: 1rem;
+  padding-bottom: 0;
   text-align: initial;
 }
 
