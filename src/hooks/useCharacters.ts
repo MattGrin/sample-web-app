@@ -32,6 +32,7 @@ const useCharacters = (searchParams: FiltrableParams) => {
     keepPreviousData: true,
     refetchOnMount: true,
     refetchOnWindowFocus: false,
+    retry: 2,
     initialData: {
       pageParams: [1],
       pages: [],
