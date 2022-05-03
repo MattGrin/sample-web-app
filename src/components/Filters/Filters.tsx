@@ -1,8 +1,8 @@
 import { useState } from "react";
 import classnames from "classnames";
 import { Character } from "../../services/characters/characters.types";
-import "./Filters.css";
 import { ReactDispatcher } from "../../utils/utils.types";
+import "./Filters.css";
 
 export interface FilterProps {
   loading: boolean;
