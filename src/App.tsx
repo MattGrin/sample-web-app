@@ -1,6 +1,5 @@
-import React from "react";
-import "./App.css";
 import CharactersScreen from "./views/characters";
+import "./App.css";
 
 function App() {
   return (
