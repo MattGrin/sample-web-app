@@ -45,7 +45,7 @@ const Characters = (props: any) => {
     if (status || gender) {
       refetch();
     }
-  }, [status, gender]);
+  }, [status, gender, refetch]);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -54,7 +54,7 @@ const Characters = (props: any) => {
     return () => {
       clearTimeout(timeoutId);
     };
-  }, [name]);
+  }, [name, refetch]);
 
   const clearSearchParams = () => {
     setActiveGender(null);
