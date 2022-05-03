@@ -17,10 +17,6 @@ export interface FilterProps {
   handleClearFilter: () => void;
 }
 
-/**
- * Rick and morty data base
- * Soft header
- */
 const Filters = ({
   loading,
   setName,
