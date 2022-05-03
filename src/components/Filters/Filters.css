@@ -68,7 +68,6 @@
   flex-direction: row;
   overflow: scroll;
 
-  /* grid-template-columns: repeat(4, auto); */
   align-items: center;
   justify-items: stretch;
   gap: .5rem;
