@@ -84,6 +84,7 @@ const Characters = (props: any) => {
           {charactersList &&
             !nothingFound &&
             charactersList.map((character: Character) => {
+              const ariaLabel = `${character.name} ${character.status}, ${character.species}, ${character.gender}, press intro to get more info`;
               return (
                 <ListItem
                   key={character.id}
@@ -91,6 +92,7 @@ const Characters = (props: any) => {
                   subtitle={character.origin.name}
                   leadingSpec={character.created}
                   trailingSpec={character.status}
+                  aria-label={ariaLabel}
                   imgUrl={character.image}
                 />
               );
