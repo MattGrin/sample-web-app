@@ -1,3 +1,4 @@
+import classnames from "classnames";
 import "./PrimaryButton.css";
 
 /**
@@ -5,10 +6,14 @@ import "./PrimaryButton.css";
  */
 const PrimaryButton: React.FC<React.HTMLAttributes<HTMLButtonElement>> = ({
   children,
+  className,
   ...buttonProps
 }) => {
   return (
-    <button className="primary-button" {...buttonProps}>
+    <button
+      className={classnames("primary-button", className)}
+      {...buttonProps}
+    >
       {children}
     </button>
   );

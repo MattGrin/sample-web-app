@@ -30,3 +30,9 @@
   align-self: center;
   flex-grow: 1;
 }
+
+.filters__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

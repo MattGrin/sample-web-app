@@ -4,6 +4,7 @@ import { ReactDispatcher } from "../../utils/utils.types";
 import PrimaryButton from "../PrimaryButton";
 import TextInput from "../TextInput";
 import Switch from "../Switch";
+import { ReactComponent as FilterIcon } from "./filter-icon.svg";
 import "./Filters.css";
 
 export interface FilterProps {
@@ -53,8 +54,12 @@ const Filters = ({
             setName(event.target.value);
           }}
         />
-        <PrimaryButton className="primary-button" onClick={toggleExpnandedView}>
-          <h4>X</h4>
+        <PrimaryButton onClick={toggleExpnandedView} className="filters__icon">
+          <FilterIcon
+            width="16px"
+            height="16px"
+            fill="var(--background-over-primary)"
+          />
         </PrimaryButton>
       </section>
       {expandedView && (
