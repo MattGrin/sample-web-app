@@ -3,19 +3,10 @@ import "./TextInput.css";
 /**
  * Global non-domain-based element
  */
-const PrimaryButton: React.FC<React.HTMLAttributes<HTMLButtonElement>> = ({
-  children,
-  ...buttonProps
-}) => {
+const TextInput: React.FC<React.HTMLProps<HTMLInputElement>> = (inputProps) => {
   return (
-    <button
-      data-testid="primary-button"
-      className="primary-button"
-      {...buttonProps}
-    >
-      {children}
-    </button>
+    <input type="text" maxLength={30} className="text-input" {...inputProps} />
   );
 };
 
-export default PrimaryButton;
+export default TextInput;

@@ -2,8 +2,9 @@ import { useState } from "react";
 import classnames from "classnames";
 import { Character } from "../../services/characters/characters.types";
 import { ReactDispatcher } from "../../utils/utils.types";
-import "./Filters.css";
 import PrimaryButton from "../PrimaryButton";
+import "./Filters.css";
+import TextInput from "../TextInput";
 
 export interface FilterProps {
   loading: boolean;
@@ -15,12 +16,6 @@ export interface FilterProps {
   gender: Character["gender"] | null;
   handleClearFilter: () => void;
 }
-
-const TextInput: React.FC<React.HTMLProps<HTMLInputElement>> = (inputProps) => {
-  return (
-    <input type="text" maxLength={30} className="text-input" {...inputProps} />
-  );
-};
 
 /**
  * Rick and morty data base
