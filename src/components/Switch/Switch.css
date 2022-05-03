@@ -1,0 +1,33 @@
+
+.switch{
+  display: flex;
+  flex-direction: row;
+  overflow: scroll;
+
+  align-items: center;
+  justify-items: stretch;
+  gap: .5rem;
+  padding: .1rem;
+  margin: 1rem 0;
+
+  max-width: calc(100vw - 5rem);
+
+  border: var(--box-border);
+  border-radius: 1rem;
+}
+
+.switch::-webkit-scrollbar {
+  display: none;
+}
+
+.switch__item {
+  cursor: pointer;
+  text-align: center;
+  padding: .4rem 1rem;
+}
+
+.switch__item--active{
+  background-color: var(--button-primary);
+  color: var(--font-over-primary);
+  border-radius: .8rem;
+}
