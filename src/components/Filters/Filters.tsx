@@ -1,8 +1,7 @@
+import { useState } from 'react';
 import classnames from 'classnames';
-import React, { DetailedHTMLProps, DetailedReactHTMLElement, DetailsHTMLAttributes, useRef, useState } from 'react';
 import { Character } from '../../services/characters/characters.types';
 import './Filters.css'
-
 
 export interface FilterProps {
   onSearchByName?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -17,35 +16,6 @@ const TextInput: React.FC<React.HTMLAttributes<HTMLInputElement>> = (inputProps)
 const PrimaryButton: React.FC<React.HTMLAttributes<HTMLButtonElement>> = ({children, ...buttonProps}) => {
   return <button className="primary-button" {...buttonProps}>{children}</button>
 }
-
-// interface SwitchProps {
-//   options: {
-//     label: string;
-//     selected: boolean;
-//     onClick: (label: string) => void;
-//   }[]
-// }
-
-// const Switch = ({options}: SwitchProps) => {
-//   const [selected, setSelected] = useState();
-//   return <section aria-label='switch' className='switch'>
-//     {options.map(({label, selected, onClick}) => {
-//       return <button
-//         key={label}
-//         className={`switch-button ${selected ? 'selected' : ''}`}
-//         onClick={() => {
-//           onClick(label);
-//           setSelected(label);
-//         }
-//         }>
-//         {label}
-//       </button>
-//     })}
-//     <div className="switch__item">Alive</div>
-//     <div className="switch__item">Dead</div>
-//     <div className="switch__item">Unknown</div>
-//   </section>
-// }
 
 /**
  * Rick and morty data base
