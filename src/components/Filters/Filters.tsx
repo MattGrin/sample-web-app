@@ -1,10 +1,10 @@
 import { useState } from "react";
-import classnames from "classnames";
 import { Character } from "../../services/characters/characters.types";
 import { ReactDispatcher } from "../../utils/utils.types";
 import PrimaryButton from "../PrimaryButton";
-import "./Filters.css";
 import TextInput from "../TextInput";
+import Switch from "../Switch";
+import "./Filters.css";
 
 export interface FilterProps {
   loading: boolean;
@@ -64,50 +64,42 @@ const Filters = ({
       {expandedView && (
         <>
           <section className="filters__collapsable-area">
-            <label htmlFor="status-selector">
-              <b>Status</b>
-            </label>
-            <div
+            <Switch.Wrapper
               id="status-selector"
-              aria-label={`${
+              label="status"
+              aria-label={
                 status ? status + "is selected" : "no status is selected"
-              }`}
-              className="switch"
+              }
             >
               {availableStatus.map((_status) => (
-                <div
+                <Switch.Item
+                  key={_status}
+                  isActive={_status === status}
                   onClick={() => setStatus(_status)}
                   aria-label={`${_status} status option`}
-                  className={classnames("switch__item", {
-                    "switch__item--active": status === _status,
-                  })}
                 >
                   {_status}
-                </div>
+                </Switch.Item>
               ))}
-            </div>
-            <label htmlFor="gender-selector">
-              <b>Gender</b>
-            </label>
-            <div
+            </Switch.Wrapper>
+            <Switch.Wrapper
               id="gender-selector"
-              aria-label={`${
+              label="gender"
+              aria-label={
                 gender ? gender + "is selected" : "no gender is selected"
-              }`}
-              className="switch"
+              }
             >
               {availableGenders.map((_gender) => (
-                <div
+                <Switch.Item
+                  key={_gender}
+                  isActive={_gender === gender}
                   onClick={() => setGender(_gender)}
                   aria-label={`${_gender} gender option`}
-                  className={classnames("switch__item", {
-                    "switch__item--active": gender === _gender,
-                  })}
                 >
                   {_gender}
-                </div>
+                </Switch.Item>
               ))}
-            </div>
+            </Switch.Wrapper>
           </section>
           <section data-testid="filter-cleanup">
             <PrimaryButton onClick={handleClearFilter}>
