@@ -5,7 +5,13 @@ import "./TextInput.css";
  */
 const TextInput: React.FC<React.HTMLProps<HTMLInputElement>> = (inputProps) => {
   return (
-    <input type="text" maxLength={30} className="text-input" {...inputProps} />
+    <input
+      data-testid="text-input"
+      type="text"
+      maxLength={30}
+      className="text-input"
+      {...inputProps}
+    />
   );
 };
 
