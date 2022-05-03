@@ -45,7 +45,7 @@ const Filters = ({
         data-testid="visible-section"
         className="filters__visible-section"
       >
-        {loading && <h1 className="loader">(...)</h1>}
+        {loading && !expandedView && <h4 className="loader">(...)</h4>}
         <TextInput
           aria-label="search by name"
           placeholder="Search by name..."
@@ -102,7 +102,11 @@ const Filters = ({
               ))}
             </Switch.Wrapper>
           </section>
-          <section data-testid="filter-cleanup">
+          <section
+            data-testid="filter-cleanup"
+            className="filters__collapsable-area-bottom"
+          >
+            {loading && expandedView && <h4 className="loader">(...)</h4>}
             <PrimaryButton onClick={handleClearFilter}>
               <h4>clear filters</h4>
             </PrimaryButton>

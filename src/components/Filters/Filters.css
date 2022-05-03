@@ -26,6 +26,11 @@
   width: 100%;
 }
 
+.filters__collapsable-area-bottom{
+  display: inherit;
+  gap: 1rem;
+}
+
 .loader {
   align-self: center;
   flex-grow: 1;
