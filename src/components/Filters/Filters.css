@@ -29,6 +29,16 @@
 .loader {
   align-self: center;
   flex-grow: 1;
+  animation: blink infinite 1000ms ease-in-out;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 .filters__icon {

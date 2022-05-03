@@ -45,7 +45,7 @@ const Filters = ({
         data-testid="visible-section"
         className="filters__visible-section"
       >
-        {loading && <h1 className="loader">Loading...</h1>}
+        {loading && <h1 className="loader">(...)</h1>}
         <TextInput
           aria-label="search by name"
           placeholder="Search by name..."
