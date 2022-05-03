@@ -24,8 +24,11 @@ const useCharacters = () => {
    * React query tool to handle requests
    */
   const infiniteQueryRequester = (queryObserverResult: QueryFunctionContext) => {
-    // const targetPage = queryObserverResult.pageParam || 1;
-    return getCharacters(searchParams);
+    const targetPage = queryObserverResult.pageParam || 1;
+    return getCharacters({
+      ...searchParams,
+      page: targetPage,
+    });
   };
 
   const infiniteQueryRequestConfig = {
@@ -34,7 +37,7 @@ const useCharacters = () => {
        * hasNextPage is true only if 
        * getNextPageParam returns is different than undefined
        */
-      return lastPage.info.next ? pages.length + 1 : undefined
+      return lastPage?.info?.next ? pages.length + 1 : undefined
     },
     keepPreviousData: true,
     refetchOnMount: true,
@@ -58,7 +61,21 @@ const useCharacters = () => {
         results: [],
       };
     }
-    return response.data;
+    const sanitizedData = {
+      ...response.data,
+      results: response.data.results.map(character => {
+        const { created } = character;
+        const createdDate = new Date(created);
+        const createdMonth = createdDate.getMonth();
+        const createdYear = createdDate.getFullYear();
+        const simplifiedDate = createdMonth + '/' + createdYear;
+        return {
+          ...character,
+          created: simplifiedDate,
+        };
+      }),
+    }
+    return sanitizedData;
   };
 
   const charactersResponseHandler = serialize(charactersResponseSerializer, infiniteQueryRequester);
@@ -82,7 +99,11 @@ const useCharacters = () => {
     infiniteQueryRequestConfig,
   );
 
-  const charactersList = charactersData?.pages.map(page => page.results).flat();
+  const charactersList = charactersData?.pages.map(page => page.results).flat() || [];
+
+  const shouldDisplayMainError = isError && !isFetching && !isRefetchError && charactersList.length === 0;
+
+  const shouldDisplayPageLoader = isFetchingNextPage && hasNextPage;
 
   return {
     /* Data */
@@ -94,6 +115,8 @@ const useCharacters = () => {
     fetchingMoreCharacters: isFetchingNextPage,
     failedFetchingMoreCharacters: isRefetchError,
     hasMoreCharacters: hasNextPage,
+    shouldDisplayMainError,
+    shouldDisplayPageLoader,
 
     /* Tools */
     getNextPage: fetchNextPage,
