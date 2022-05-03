@@ -11,7 +11,7 @@ export interface Character {
   status: 'alive' | 'dead' | 'unknown', 
   species: string,
   type: string,
-  gender: 'female' | 'male' | 'genderless' | unknown,
+  gender: 'female' | 'male' | 'genderless' | 'unknown',
   origin: Linkable,
   location: Linkable,
   image: string,
