@@ -3,8 +3,8 @@ import PrimaryButton from "./PrimaryButton";
 
 describe("PrimaryButton", () => {
   it("renders without crashing", () => {
-    render(<PrimaryButton />);
-    const foundElement = screen.getByTestId("soft-header");
+    render(<PrimaryButton>name</PrimaryButton>);
+    const foundElement = screen.getByText("name");
     expect(foundElement).toBeInTheDocument();
   });
 });
